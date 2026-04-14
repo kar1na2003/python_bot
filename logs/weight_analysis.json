@@ -1,0 +1,102 @@
+{
+  "ga": {
+    "best_weights": {
+      "alive_unit": 163.59485019333673,
+      "hp": 23.36046126087873,
+      "attack_option": 15.194229429263805,
+      "mobility": 1.2321639148086199,
+      "center_control": 1.1176535827903094,
+      "progress": 0.840075984023977,
+      "cluster": 2.267868549951686,
+      "kill_bonus": 348.05916332734716,
+      "damage": 20.469681051378238,
+      "focus_long_range": 82.01592722494435,
+      "focus_short_range": 21.096675923630567,
+      "focus_fast": 22.092356132552023,
+      "value_base": 9.768576329295133,
+      "value_attack": 6.461565021856137,
+      "value_defence": 6.493275168514554,
+      "value_range": 6.135260385598532,
+      "value_movement": 3.776174057151988,
+      "value_health": 6.43051876517104
+    },
+    "best_winrate": 0.8333333333333334,
+    "history": [
+      {
+        "generation": 1,
+        "best_winrate": 0.8333333333333334,
+        "population_avg": 0.65625
+      },
+      {
+        "generation": 2,
+        "best_winrate": 0.8333333333333334,
+        "population_avg": 0.5833333333333334
+      },
+      {
+        "generation": 3,
+        "best_winrate": 0.8333333333333334,
+        "population_avg": 0.59375
+      },
+      {
+        "generation": 4,
+        "best_winrate": 0.8333333333333334,
+        "population_avg": 0.6145833333333333
+      },
+      {
+        "generation": 5,
+        "best_winrate": 0.8333333333333334,
+        "population_avg": 0.625
+      },
+      {
+        "generation": 6,
+        "best_winrate": 0.8333333333333334,
+        "population_avg": 0.7083333333333333
+      },
+      {
+        "generation": 7,
+        "best_winrate": 0.8333333333333334,
+        "population_avg": 0.6875
+      },
+      {
+        "generation": 8,
+        "best_winrate": 0.8333333333333334,
+        "population_avg": 0.5
+      },
+      {
+        "generation": 9,
+        "best_winrate": 0.8333333333333334,
+        "population_avg": 0.75
+      },
+      {
+        "generation": 10,
+        "best_winrate": 0.8333333333333334,
+        "population_avg": 0.6458333333333333
+      },
+      {
+        "generation": 11,
+        "best_winrate": 0.8333333333333334,
+        "population_avg": 0.53125
+      },
+      {
+        "generation": 12,
+        "best_winrate": 0.8333333333333334,
+        "population_avg": 0.59375
+      },
+      {
+        "generation": 13,
+        "best_winrate": 0.8333333333333334,
+        "population_avg": 0.6666666666666666
+      },
+      {
+        "generation": 14,
+        "best_winrate": 0.8333333333333334,
+        "population_avg": 0.5625
+      },
+      {
+        "generation": 15,
+        "best_winrate": 0.8333333333333334,
+        "population_avg": 0.7395833333333334
+      }
+    ]
+  }
+}

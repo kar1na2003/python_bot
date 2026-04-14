@@ -1,0 +1,31 @@
+{
+  "weights": {
+    "alive_unit": 123.48677466489626,
+    "hp": 20.906850448626123,
+    "attack_option": 16.30049253527622,
+    "mobility": 1.067414727469699,
+    "center_control": 1.6809465114403919,
+    "progress": 0.8232854063789168,
+    "cluster": 2.335997138282249,
+    "kill_bonus": 160.0,
+    "damage": 18.0,
+    "focus_long_range": 25.0,
+    "focus_short_range": 23.25362467639711,
+    "focus_fast": 19.800930302572354,
+    "value_base": 8.677179172509078,
+    "value_attack": 9.593355329900582,
+    "value_defence": 5.011867289243151,
+    "value_range": 7.424782594296541,
+    "value_movement": 3.0087921863252483,
+    "value_health": 6.515934276801169,
+    "exposed_ranged": -32.0,
+    "threatened": -10.0
+  },
+  "unit_type_multipliers": {
+    "Light": 1.0,
+    "Heavy": 1.12,
+    "Fast": 1.05,
+    "ShortRange": 1.1,
+    "LongRange": 1.18
+  }
+}

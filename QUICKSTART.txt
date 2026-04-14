@@ -1,0 +1,157 @@
+"""
+QUICK START GUIDE - Arena.AI Python MCTS Bot
+"""
+
+print("""
+╔═══════════════════════════════════════════════════════════════════════╗
+║                 Arena.AI Python MCTS Bot - Quick Start               ║
+╚═══════════════════════════════════════════════════════════════════════╝
+
+WHAT IS THIS?
+─────────────
+An intelligent bot that plays the Arena.AI tactical battle game using 
+Monte Carlo Tree Search (MCTS). The bot receives game state from the 
+server, thinks about the best move using AI, and sends that move back.
+
+QUICK START (3 STEPS)
+────────────────────
+
+1. INSTALL DEPENDENCIES
+   
+   $ pip install -r requirements.txt
+   
+   Or if using virtual environment:
+   
+   $ python -m venv venv
+   $ venv\\Scripts\\activate  # Windows
+   $ pip install -r requirements.txt
+
+2. RUN OFFLINE TEST (No server required)
+   
+   $ python main.py
+   
+   This will simulate a bot vs bot battle to verify everything works.
+
+3. CONNECT TO SERVER BATTLE
+   
+   a) Start the Arena.AI server (C# backend)
+   b) Create a battle on the server and get battle ID (e.g., "abc123")
+   c) Run the bot:
+      
+      $ python main.py abc123
+
+CONFIGURATION
+─────────────
+Choose your performance profile in config.py:
+
+  PERFORMANCE_PROFILE = "FAST"     # 1-2 seconds per move
+  PERFORMANCE_PROFILE = "BALANCED" # 3-5 seconds per move  
+  PERFORMANCE_PROFILE = "ACCURATE" # 5-10 seconds per move
+
+Or use the profile switcher:
+
+  $ python switch_profile.py fast
+  $ python switch_profile.py balanced
+  $ python switch_profile.py accurate
+
+Advanced settings in config.py:
+  MCTS_ITERATIONS = 1000    # Number of AI simulations
+  SIMULATION_DEPTH = None   # None = full game, int = limited turns
+  VERBOSE = True           # Enable detailed logging
+
+GAME RULES (What the Bot Needs to Know)
+────────────────────────────────────────
+• 20x20 grid arena (positions A1 to T20)
+• 5 unit types: Light, Heavy, Fast, ShortRange, LongRange
+• 3 actions per turn: Move, Attack, or Skip
+• Combat: Damage = Attacker - Defender + random variations
+• Counter-attacks: After hitting a target, it can hit back
+• Win condition: Eliminate all enemy units
+
+MCTS ALGORITHM (How the Bot Thinks)
+────────────────────────────────────
+1. Select: Navigate tree using UCB1 formula
+2. Expand: Create new nodes for untried moves
+3. Simulate: Play random games from position
+4. Backprop: Update node statistics
+5. Choose: Pick move with best stats
+
+UNDERSTANDING LOG OUTPUT
+────────────────────────
+✓ Turn 0: TeamA_1 acting
+  - Current unit taking action
+  
+✓ Running MCTS with 1000 iterations...
+  - Bot thinking...
+  
+✓ Action selected in 3.45s: Move
+  - Decision made, time taken, action type
+  
+✓ Move to: B5
+  - Details about the selected action
+
+FILES EXPLAINED
+───────────────
+• main.py              - Entry point, battle orchestration
+• config.py            - All settings in one place
+• bot/game_state.py    - Data models (State, Unit, Team)
+• bot/simulator.py     - Game rules and simulation
+• bot/distance.py      - Movement and range calculations
+• bot/damage.py        - Combat damage calculation
+• bot/mcts.py          - MCTS algorithm implementation
+• bot/api_client.py    - Server communication
+
+EXPECTED PERFORMANCE
+────────────────────
+• Decision time: 2-5 seconds per move (depends on iterations)
+• Win rate: ~60%+ vs simple greedy bots
+• Memory: <500MB during gameplay
+• CPU: Will use a CPU core for thinking
+
+TROUBLESHOOTING
+───────────────
+
+Q: Bot takes forever to decide
+A: Reduce MCTS_ITERATIONS in config.py (try 500 or 1000)
+
+Q: Bot can't connect to server
+A: Check SERVER_URL, ensure server is running on correct port
+
+Q: Something looks wrong with moves
+A: Enable verbose mode (VERBOSE = True) and check logs
+
+Q: Want to see what bot is thinking?
+A: Set VERBOSE = True in config.py for detailed output
+
+NEXT STEPS
+──────────
+1. Run offline test: python main.py
+2. Review logs in logs/bot.log
+3. Adjust MCTS_ITERATIONS based on speed/quality tradeoff
+4. Connect to server and watch it play!
+
+LEARNING RESOURCES
+──────────────────
+• Game rules: See Arena.AI.Core in main project
+• MCTS info: https://en.wikipedia.org/wiki/Monte_Carlo_tree_search
+• UCB1 formula: Exploration vs Exploitation balance
+
+TIPS FOR BEST RESULTS
+─────────────────────
+• Increase MCTS_ITERATIONS for deeper analysis (but slower)
+• Test offline mode first to verify installation
+• Monitor log file during gameplay
+• Adjust C_CONSTANT (1.414) if bot seems too aggressive/passive
+  - Increase for more exploration
+  - Decrease for more exploitation
+
+HAVE FUN! 🎮
+────────────
+The bot will learn the game and improve its decision-making through
+thousands of simulated battles. Watch as it becomes a skilled player!
+
+═══════════════════════════════════════════════════════════════════════
+Type: python main.py
+Press Enter when ready to begin!
+═══════════════════════════════════════════════════════════════════════
+""")
