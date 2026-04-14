@@ -1,11 +1,12 @@
 """
 Killer Moves Heuristic - Remember good moves for similar positions
 """
+from __future__ import annotations
 
-from typing import Dict, List, Set
+from typing import Dict, List, Set, Tuple
 from collections import defaultdict
 from .distance import can_attack_without_moving, get_shortest_distance_value
-
+from .game_state import BattleState, UserAction
 
 class KillerMoves:
     """Track moves that performed well in similar situations"""
