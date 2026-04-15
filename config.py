@@ -79,3 +79,8 @@ UNIT_TYPE_MULTIPLIERS = {
     "ShortRange": 1.10,
     "LongRange": 1.18,
 }
+
+# --- Data Engineering & Analytics Pipeline ---
+ENABLE_TELEMETRY = True
+TELEMETRY_EXPORT_PATH = "logs/mcts_metrics.csv"
+SUMMARY_EXPORT_PATH = "logs/summary.jsonl"
