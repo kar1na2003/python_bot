@@ -35,17 +35,20 @@ This Python bot connects to the Arena.AI C# server and plays battles using a sop
 ## Installation
 
 ### Prerequisites
+
 - Python 3.8+
 - pip package manager
 
 ### Setup
 
 1. Navigate to the python_bot directory:
+
 ```bash
 cd python_bot
 ```
 
 2. Create a virtual environment (optional but recommended):
+
 ```bash
 python -m venv venv
 source venv/Scripts/activate  # Windows
@@ -54,6 +57,7 @@ source venv/bin/activate  # Linux/Mac
 ```
 
 3. Install dependencies:
+
 ```bash
 pip install -r requirements.txt
 ```
@@ -88,6 +92,7 @@ python main.py --games 5
 ```
 
 Optional arguments:
+
 - `--heuristic-config`: path to heuristic JSON overrides
 - `--summary-json`: path to write summary JSON
 - `--quiet-actions`: hide action logs and suppress SignalR event output
@@ -95,11 +100,14 @@ Optional arguments:
 ## Game Mechanics
 
 ### Board
+
 - 20x20 arena grid
 - Positions labeled A1-T20
 
 ### Units
+
 5 types with different stats:
+
 - **Light**: Balanced attacker
 - **Heavy**: Strong defense
 - **Fast**: High movement
@@ -107,11 +115,13 @@ Optional arguments:
 - **LongRange**: Ranged specialist
 
 ### Actions (per turn)
+
 1. **Move**: Relocate to adjacent cell
 2. **Attack**: Hit enemy within range (+ potential counter-attack)
 3. **Skip**: End turn without action
 
 ### Combat System
+
 - Damage = Attacker.Attack - Defender.Defence + randomness
 - Type-specific bonuses and penalties
 - Counter-attacks at ~50% damage
@@ -123,33 +133,38 @@ Optional arguments:
 The bot uses Monte Carlo Tree Search with UCB1 formula:
 
 **Selection Phase**
+
 - Navigate from root using UCB1 selection
 - Balance exploitation (win rate) vs exploration (uncertainty)
 
 **Expansion Phase**
+
 - Create child nodes for untried actions
 - Use lazy expansion for efficiency
 
 **Simulation Phase**
+
 - Run random playout from expanded node
 - Simulate game to completion or depth limit
 - Record winner
 
 **Backpropagation Phase**
+
 - Update visit counts and reward values
 - Propagate results up the tree
 
 **Selection**
+
 - After all iterations, pick action with most visits
 
 ## Performance
 
-| Parameter | Value |
-|-----------|-------|
-| Iterations/move | 1000-5000 |
-| Time/move | 2-10 seconds |
-| Memory | <500MB |
-| Win rate vs SimplePlayer1 | ~60%+ |
+| Parameter                 | Value        |
+| ------------------------- | ------------ |
+| Iterations/move           | 1000-5000    |
+| Time/move                 | 2-10 seconds |
+| Memory                    | <500MB       |
+| Win rate vs SimplePlayer1 | ~60%+        |
 
 ## Command-Line Interface
 
@@ -204,6 +219,7 @@ LOG_LEVEL = "WARNING" # Quiet
 ## Troubleshooting
 
 ### Server Connection Issues
+
 ```
 Error: Cannot connect to server
 → Check SERVER_URL in config.py
@@ -212,6 +228,7 @@ Error: Cannot connect to server
 ```
 
 ### Slow Performance
+
 ```
 Problem: Bot takes too long to decide
 → Reduce MCTS_ITERATIONS in config.py
@@ -220,6 +237,7 @@ Problem: Bot takes too long to decide
 ```
 
 ### Wrong Move Selection
+
 ```
 Problem: Bot makes suboptimal decisions
 → Increase MCTS_ITERATIONS for better accuracy
@@ -237,6 +255,14 @@ Problem: Bot makes suboptimal decisions
 - [ ] End-game heuristics
 - [ ] WebSocket support for real-time updates
 - [ ] Bot vs bot tournament mode
+
+## Data Engineering & Analytics
+
+The bot includes a robust data pipeline for future Machine Learning integration:
+
+- **State Feature Extraction:** Flattens complex game states into ML-ready arrays.
+- **MCTS Telemetry:** Logs performance metrics to CSV for algorithm tuning.
+- **Match Aggregation:** Exports game outcomes to JSON-Lines format.
 
 ## License
 
